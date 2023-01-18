@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    Crear facturas
+  </mat-card-header>
+  <mat-card-content>
+    <button mat-raised-button (click)="GetInvoices()">Obtener facturas</button>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listInvoices | async">
+          <td>{{item.Id}}</td>
+          <td>{{item.Monto}}</td>
+          <td>{{item.Fecha | date:'short'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>
