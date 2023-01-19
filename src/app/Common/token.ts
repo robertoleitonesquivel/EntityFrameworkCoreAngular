@@ -13,7 +13,6 @@ export class HttpTokenInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-
     if (!req.url.includes('Login')) {
       req = req.clone({
         setHeaders: {
