@@ -6,16 +6,24 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTokenInterceptor } from './Common/token';
+import { LoginComponent } from './Componentes/login/login.component';
+import { MaterialModule } from './Common/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NotFoundComponent } from './Componentes/notfound/notfound.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [
     {

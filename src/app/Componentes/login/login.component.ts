@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { filter, tap } from 'rxjs';
 import { BaseResponse } from 'src/app/Common/Response';
 import { CommonService } from 'src/app/Services/common.service';
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginSVC: LoginService,
-    private commonSVC: CommonService
+    private commonSVC: CommonService,
+    private route:Router
   ) {
 
   }
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit {
         }
       }),
       tap((res) => this.commonSVC.saveSession('token', res.Data)),
-      tap((res) => alert('Logueado con éxito.!')),
+      tap((res) => this.route.navigate(['/Home'])),
     ).subscribe({
       next: (res) => {
 

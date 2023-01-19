@@ -10,9 +10,9 @@ export interface HttpErrorReponse {
 }
 
 export interface Error {
-  data:    null;
-  result:  boolean;
-  message: string;
+  Data:    null;
+  Result:  boolean;
+  Message: string;
 }
 
 export interface Headers {

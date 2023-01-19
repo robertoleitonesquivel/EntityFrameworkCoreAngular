@@ -14,22 +14,18 @@ export class HttpTokenInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
 
-    if (req.url.includes('Login')) {
-      return next.handle(req);
+    if (!req.url.includes('Login')) {
+      req = req.clone({
+        setHeaders: {
+          'Content-Type': 'application/json',
+          authorization: `Bearer ${this.commonSVC.getSession('token')}`
+        }
+      })
     }
-
-
-    req = req.clone({
-      setHeaders: {
-        'Content-Type': 'application/json',
-        authorization: `Bearer ${this.commonSVC.getSession('token')}`
-      }
-    })
-
 
     return next.handle(req).pipe(
       catchError((err: HttpErrorReponse) => {
-        const errorMsg = err.error.message || err.message || err.statusText;
+        const errorMsg = err.error.Message || err.message || err.statusText;
         return throwError(() => errorMsg);
       })
     );

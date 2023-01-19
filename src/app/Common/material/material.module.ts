@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { LoginRoutingModule } from 'src/app/Componentes/login/login-routing.module';
 
 
 
@@ -17,8 +16,7 @@ import { LoginRoutingModule } from 'src/app/Componentes/login/login-routing.modu
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule,
-    LoginRoutingModule
+    MatFormFieldModule
   ]
 })
 export class MaterialModule { }
